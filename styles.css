@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Roboto:wght@100;300;500&display=swap');
+
+/*
+kleuren
+
+Paars #5722CD;
+Blauw #4845E4;
+Roze #ED4385;
+Zwart #0C0C0C (voor standaard tekst);
+Lichtpaars #F2F0FF (voor de grote zwevende woorden, zoals "hello" en "services")
+Uitzonderingen:
+Lichtgrijs #F3F6F9 (voor de achtergrond van de projecten)
+Grijs #7A7A7A (voor de service-tegel tekst);/*/
+
+
 /*////////////////////////
     Table of Contents
     1. Global Styles
@@ -8,15 +23,55 @@
     4. Areas
         4.1 Header
         4.2 Introduction
-        etc.
-    5. Media Queries
-////////////////////////*/
+        4.3 Work
+        4.4 Services
+        4.5 Contact form
+        4.6 footer
+     5. Media querries
+ */
+/*/
+
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
 /* ------------------------------- 2. Typography ----------------------------------- */
 
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', sans-serif;
+}
+
 /* ------------------------------- 3. Layout --------------------------------------- */
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inner-container {
+    flex-basis: 600px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+}
 
 /* --------------- 3.1 Reusables ----------------------- */
 
@@ -25,7 +80,262 @@
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
 /* --------------- 4.1 Header ------------------------- */
+header {
+    background: rgb(72, 69, 228);
+    background: linear-gradient(90deg, rgba(72, 69, 228, 1) 47%, rgba(87, 34, 205, 1) 77%);
+    color: white;
+    margin: 0;
+    position: relative;
+    padding-bottom: 150px;
+}
 
-/* --------------- 4.2 Introduction ------------------- */
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 300px;
+    margin-right: 40px;
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 100px;
+    text-align: center;
+
+}
+
+header p {
+    margin: 20px;
+}
+
+header .imgbox {
+    position: absolute;
+    bottom: 0;
+    left: 47%;
+    padding: 60px 40px;
+    background-image: url("/assets/squiggle_line_stripe.svg");
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+header button {
+    background-color: #ED4385;
+    text-transform: uppercase;
+    color: white;
+    border: #ED4385;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: 0px 10px 10px #5722CD;
+}
+
+/* --------- 4.2 Introduction -------- */
+
+#introduction h2 {
+    color: #5722CD;
+    margin: 15px 0;
+}
+
+
+#introduction .inner-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#introduction p {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* ---------------------- 4.3 Work ------------------------- */
+
+#work {
+    background-color: #F3F6F9;
+}
+
+#work .inner-container {
+    flex-basis: 1600px;
+}
+
+#work article {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 20px;
+}
+
+#work article:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+#work .container-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+#work .wraptext {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 300px;
+    max-width: 300px;
+    margin: 40px 40px;
+    text-align: left;
+}
+
+#work .wraptext h2, p, a, .squiggle {
+    margin: 15px 0;
+    text-align: start;
+}
+
+#work .wraptext img {
+    max-width: 50px;
+}
+
+#work a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+
+}
+
+#work .wrapimg {
+    flex-basis: 800px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    box-shadow: 0px 10px 10px grey;
+    min-width: 33%;
+}
+
+/* ---------------------- 4.4 Services ------------------------- */
+#services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+#services h3 {
+    color: #5722CD;
+}
+
+#services p {
+    color: #7A7A7A;
+}
+
+#services .services-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 800px;
+    max-width: 1300px;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+#services article {
+    border: 2px solid #5722CD;
+    box-shadow: 0 5px 10px grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: 380px;
+    padding: 30px;
+    margin: 20px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+
+#services img {
+    width: 80px;
+}
+
+/* ---------------------- 4.5 Contact form ------------------------- */
+
+#contact-form {
+    background: rgb(72, 69, 228);
+    background: linear-gradient(90deg, rgba(72, 69, 228, 1) 47%, rgba(87, 34, 205, 1) 77%);
+    color: white;
+}
+
+#contact-form h2, #contact-form p {
+    text-align: center;
+}
+
+#contact-form p {
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+#contact-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact-form .container-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+#contact-form .container-form h2, label, p {
+    padding-top: 20px;
+}
+
+#contact-form .container-form input, textarea {
+    padding: 10px;
+    border-radius: 3px;
+}
+
+#contact-form button {
+    background-color: #ED4385;
+    text-transform: uppercase;
+    color: white;
+    border: #ED4385;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 50px;
+    box-shadow: 0px 10px 10px #5722CD;
+    width: 150px;
+}
+
+/* ---------------------- 4.6 Footer ------------------------- */
+
+footer {
+    background-color: black;
+    color: white;
+    padding-bottom: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-weight: lighter;
+    font-size: small;
+    text-align: center;
+}
+
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
