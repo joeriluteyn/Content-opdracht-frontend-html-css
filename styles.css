@@ -42,6 +42,7 @@ Grijs #7A7A7A (voor de service-tegel tekst);/*/
 
 img {
     width: 100%;
+    vertical-align: middle;
 }
 
 /* ------------------------------- 2. Typography ----------------------------------- */
@@ -64,11 +65,10 @@ h1, h2, h3 {
 }
 
 .inner-container {
-    flex-basis: 600px;
+    flex-basis: 800px;
     flex-grow: 0;
     flex-shrink: 1;
     margin: 40px 20px;
-
     display: flex;
     flex-direction: column;
 }
@@ -82,11 +82,24 @@ h1, h2, h3 {
 /* --------------- 4.1 Header ------------------------- */
 header {
     background: rgb(72, 69, 228);
-    background: linear-gradient(90deg, rgba(72, 69, 228, 1) 47%, rgba(87, 34, 205, 1) 77%);
+    background: linear-gradient(90deg, rgba(72, 69, 228, 1) 47%, rgba(87, 34, 205, 1) 77%) ;
     color: white;
     margin: 0;
     position: relative;
     padding-bottom: 150px;
+}
+
+header::after {
+    background-image: url("/assets/noise-texture.png");
+    display: block;
+    content: '';
+    position: absolute;
+    background-position: top center;
+    background-size: auto;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 header nav {
@@ -104,6 +117,17 @@ header ul {
     margin-right: 40px;
 }
 
+header ul a {
+    text-decoration: none;
+    color: white;
+    z-index: 999;
+}
+
+header ul a:visited {
+    color: white;
+}
+
+
 header div {
     display: flex;
     flex-direction: column;
@@ -111,7 +135,6 @@ header div {
     align-items: center;
     padding: 100px 100px;
     text-align: center;
-
 }
 
 header p {
@@ -121,11 +144,14 @@ header p {
 header .imgbox {
     position: absolute;
     bottom: 0;
-    left: 47%;
+    left: 50%;
+    right: auto;
     padding: 60px 40px;
+    transform:translatex(-50%);
     background-image: url("/assets/squiggle_line_stripe.svg");
     background-repeat: no-repeat;
     background-size: cover
+
 }
 
 header button {
@@ -135,10 +161,53 @@ header button {
     border: #ED4385;
     padding: 15px;
     border-radius: 50px;
-    box-shadow: 0px 10px 10px #5722CD;
+    box-shadow: 0 10px 10px #5722CD;
 }
 
+header button a {
+    text-decoration: none;
+    color: white;
+    z-index: 999;
+}
+
+header button a:visited {
+    color: white;
+}
+
+.stretch-triangle {
+    width: 100%;
+    height: 80px;
+    background: rgb(72, 69, 228);
+    background: linear-gradient(90deg, rgba(72, 69, 228, 1) 47%, rgba(87, 34, 205, 1) 77%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.stretch-triangle::after {
+    background-image: url("/assets/noise-texture.png");
+    display: block;
+    content: '';
+    position: absolute;
+    background-position: top center;
+    background-size: auto;
+    height: 100%;
+    width: 100%;
+}
+
+
 /* --------- 4.2 Introduction -------- */
+
+#introduction {
+    margin-block: 80px;
+}
+
+#introduction::before {
+    content: 'hello';
+    color: #7A7A7A;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.2;
+    font-size: 300px;
+}
 
 #introduction h2 {
     color: #5722CD;
@@ -157,24 +226,55 @@ header button {
     text-align: center;
 }
 
+#introduction a {
+    text-decoration: none;
+}
+
+#introduction a:visited {
+    color: #5722CD;
+}
+
+
+
 /* ---------------------- 4.3 Work ------------------------- */
 
 #work {
     background-color: #F3F6F9;
+    display: flex;
+
+}
+
+#work::before {
+    content: 'work';
+    color: red;
+    position: absolute;
+    z-index: -1;
+    font-size: 300px;
+}
+
+#work .outer-container {
+    justify-content: flex-start;
+    background-color: #F3F6F9;
+
 }
 
 #work .inner-container {
     flex-basis: 1600px;
+    justify-content: flex-start;
+    background-color: #F3F6F9;
+
 }
+
 
 #work article {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 40px 20px;
 }
 
 #work article:nth-child(even) {
     flex-direction: row-reverse;
+    margin-left: 40px;
 }
 
 #work .container-article {
@@ -184,6 +284,8 @@ header button {
     align-items: center;
     flex-grow: 0;
     flex-shrink: 1;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 #work .wraptext {
@@ -192,8 +294,8 @@ header button {
     justify-content: flex-start;
     min-width: 300px;
     max-width: 300px;
-    margin: 40px 40px;
     text-align: left;
+
 }
 
 #work .wraptext h2, p, a, .squiggle {
@@ -208,18 +310,43 @@ header button {
 #work a {
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: bold;
+    margin-right: 20px;
+}
 
+#work a:visited {
+    color: #5722CD;
 }
 
 #work .wrapimg {
     flex-basis: 800px;
+    min-width:400px;
     flex-grow: 0;
     flex-shrink: 1;
-    box-shadow: 0px 10px 10px grey;
-    min-width: 33%;
 }
+
+#work .wrapimg img {
+    box-shadow: 0 10px 10px grey;
+}
+
+.link-wrapper {
+    display: flex;
+    align-items: center;
+
+}
+
+.extending-line {
+    border: 1px solid #5722CD;
+    height: 1px;
+    width: 15px;
+}
+
+#work a:hover + .extending-line {
+    width: 50px;
+    transition: width .25s ease-in-out;
+}
+
 
 /* ---------------------- 4.4 Services ------------------------- */
 #services {
@@ -227,7 +354,7 @@ header button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 50px 0;
 }
 
 #services h3 {
@@ -278,12 +405,12 @@ header button {
     color: white;
 }
 
-#contact-form h2, #contact-form p {
+#contact-form h1, #contact-form p {
     text-align: center;
 }
 
 #contact-form p {
-    font-size: 12px;
+    font-size: 15px;
     font-weight: lighter;
 }
 
@@ -301,13 +428,21 @@ header button {
     width: 100%;
 }
 
-#contact-form .container-form h2, label, p {
+#contact-form .container-form h1, label, p {
     padding-top: 20px;
 }
 
 #contact-form .container-form input, textarea {
     padding: 10px;
     border-radius: 3px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}
+
+#contact-form .container-form input, textarea:focus {
+    outline: none;
 }
 
 #contact-form button {
@@ -318,16 +453,26 @@ header button {
     padding: 15px;
     margin-top: 20px;
     border-radius: 50px;
-    box-shadow: 0px 10px 10px #5722CD;
+    box-shadow: 0 10px 10px #5722CD;
     width: 150px;
+    margin-bottom: 40px;
 }
 
+.stretch-triangle2 {
+    width: 100%;
+    height: 80px;
+    background: rgb(72, 69, 228);
+    background: linear-gradient(90deg, rgba(72, 69, 228, 1) 47%, rgba(87, 34, 205, 1) 77%);
+    clip-path: polygon(100% 100%, 0% 0%, 0% 100%);
+}
 /* ---------------------- 4.6 Footer ------------------------- */
 
 footer {
     background-color: black;
     color: white;
     padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 footer p {
